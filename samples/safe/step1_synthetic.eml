@@ -1,0 +1,38 @@
+From: Forentis Test Sender <sender@example.test>
+To: Primary Recipient <recipient@example.test>
+Cc: Copy Recipient <copy@example.test>
+Bcc: Blind Copy <blind@example.test>
+Subject: Step 1 extraction fixture
+Date: Tue, 01 Apr 2025 10:30:00 +0000
+Message-ID: <step1-fixture@example.test>
+Reply-To: Reply Desk <reply@example.test>
+Return-Path: <bounce@example.test>
+Received: from relay.example.test (relay.example.test [192.0.2.10]) by mailbox.example.test with ESMTP id first-hop
+Received: from sender.example.test (sender.example.test [192.0.2.20]) by relay.example.test with ESMTP id second-hop
+MIME-Version: 1.0
+User-Agent: ForentisAI Synthetic Fixture
+Content-Type: multipart/mixed; boundary="outer-boundary"
+
+--outer-boundary
+Content-Type: multipart/alternative; boundary="inner-boundary"
+
+--inner-boundary
+Content-Type: text/plain; charset="utf-8"
+
+This is a safe synthetic message.
+Visit https://example.test/plain-path?source=plain for the plain-text indicator.
+
+--inner-boundary
+Content-Type: text/html; charset="utf-8"
+
+<html><body><p>This is a safe synthetic message.</p><a href="https://example.test/html-path?source=html">HTML indicator</a></body></html>
+--inner-boundary--
+
+--outer-boundary
+Content-Type: text/plain; name="evidence.txt"
+Content-Disposition: attachment; filename="evidence.txt"
+Content-Transfer-Encoding: base64
+Content-ID: <evidence-attachment@example.test>
+
+c2FmZSBmaXh0dXJlIGF0dGFjaG1lbnQuCg==
+--outer-boundary--

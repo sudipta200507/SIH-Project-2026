@@ -1,0 +1,24 @@
+# Python virtual environments and generated test artifacts
+backend/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local configuration
+.env
+
+# Step 5: model artifacts and datasets are never committed (large binaries;
+# train locally via ai/training/). Keep only the directory placeholder.
+ai/models/*
+!ai/models/.gitkeep
+ai/datasets/external/*
+ai/datasets/processed/*
+ai/datasets/raw/*
+ai/models/nlp/
+
+# Step 5: training run outputs
+ai/training/runs/
+lightning_logs/
+*.joblib
+*.safetensors
+*.bin

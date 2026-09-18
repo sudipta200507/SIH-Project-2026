@@ -1,0 +1,1 @@
+# Rspamd image definition placeholder.

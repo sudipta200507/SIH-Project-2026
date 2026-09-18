@@ -1,0 +1,28 @@
+# ForentisAI local development services.
+#
+# STEP 2: Rspamd runs as a Dockerized service for email authentication and
+# security analysis. Both published ports are bound to the host loopback
+# interface only (127.0.0.1) so Rspamd is never reachable from the network:
+#   11333  normal worker  - the /checkv2 scanning HTTP API used by the client
+#   11334  controller     - the web interface, for local inspection only
+# Inside the Compose network the service is also reachable by DNS name
+# (`rspamd`), which is the default RSPAMD_URL for containerized callers.
+#
+# No privileged mode, no host filesystem mounts, no secrets in this file.
+
+services:
+  rspamd:
+    image: rspamd/rspamd:latest
+    container_name: forentisai-rspamd
+    ports:
+      # Normal worker (scanning API): loopback-only on the host.
+      - "127.0.0.1:11333:11333"
+      # Controller / web interface: loopback-only on the host.
+      - "127.0.0.1:11334:11334"
+    networks:
+      - forentisai
+    restart: "no"
+
+networks:
+  forentisai:
+    driver: bridge

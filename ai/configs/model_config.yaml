@@ -1,0 +1,30 @@
+# ForentisAI Step 5 model configuration (documentation of defaults).
+#
+# Runtime configuration is environment-variable based (see
+# backend/app/core/config.py, AISettings). This file documents the defaults
+# and is NOT read by the application; it exists so operators can see the
+# intended layout at a glance.
+#
+# Environment variables:
+#   AI_ENABLED                     default: true
+#   AI_MODEL_DIR                   default: ai/models (relative to project root)
+#   TECHNICAL_MODEL_PATH           default: $AI_MODEL_DIR/technical_model.joblib
+#   NLP_MODEL_PATH                 default: unset (NLP unavailable until a
+#                                  fine-tuned artifact is trained)
+#   NLP_MODEL_NAME                 default: microsoft/deberta-v3-base (the BASE
+#                                  model is never used for prediction; this only
+#                                  names what training should start from)
+#   AI_MAX_TEXT_LENGTH             default: 6000 characters
+#   AI_INFERENCE_TIMEOUT_SECONDS   default: 20.0
+#
+# Artifacts in this repository:
+#   technical_model.joblib         production technical model (to be trained on
+#                                  a real labeled dataset; does not exist yet)
+#   technical_model_fixture.joblib pipeline-validation fixture model (trained on
+#                                  synthetic data; NOT a production model)
+#   nlp/                           fine-tuned DeBERTa-v3 artifact directory
+#                                  (created by ai/training/train_transformer.py;
+#                                  does not exist yet)
+#
+# Honesty rule: no accuracy metric from the fixture model may be reported as
+# real-world performance. See ai/datasets/README.md.

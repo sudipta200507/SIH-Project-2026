@@ -1,0 +1,31 @@
+[project]
+name = "forentisai-email-extraction"
+version = "0.1.0"
+description = "Step 1 email data extraction engine for ForentisAI"
+requires-python = ">=3.11"
+dependencies = [
+    "mail-parser==4.6.4",
+    "pydantic==2.13.5",
+    "httpx==0.28.1",
+    "fastapi==0.129.0",
+    "uvicorn==0.41.0",
+    "python-multipart==0.0.20",
+    "dnspython==2.8.0",
+    "geoip2==5.1.0",
+    "scikit-learn==1.7.2",
+    "numpy>=2.1",
+    "joblib>=1.4",
+    "shap==0.48.0",
+    "torch==2.14.0+cpu",
+    "transformers==4.57.1",
+    "tokenizers>=0.22",
+    "sentencepiece>=0.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+addopts = "-ra -m 'not live'"
+markers = [
+    "live: controlled live integration tests (real DNS/RDAP); opt in with -m live",
+]
