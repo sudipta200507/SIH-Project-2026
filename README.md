@@ -1,4 +1,6 @@
-# ForentisAI
+# SIH 2026 Project
+## AI-Powered Email Threat Detection, Geolocation and Forensic Intelligence Platform
+
 
 ## Step 5 — AI/ML Threat Analysis
 
